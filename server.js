@@ -2,6 +2,7 @@ const express=require("express");
 const hbs=require("hbs");
 
 const app=express();
+const port=process.env.PORT||3000;
 hbs.registerPartials(__dirname+'/views/partials/');
 hbs.registerHelper('year',()=>{
     return new Date().getFullYear();
@@ -13,9 +14,9 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.use((req,res,next)=>{
-    res.render("maintanance.hbs");
-});
+// app.use((req,res,next)=>{
+//     res.render("maintanance.hbs");
+// });
 //app.use(express.static(__dirname+'/public'));
 app.get('/',(req,res)=>{
     res.render(
@@ -40,4 +41,6 @@ app.get('/bad',(req,res)=>{
 app.get('/demo',(req,res)=>{
     res.send("j");
 });
-app.listen(3000);
+app.listen(port,()=>{
+    console.log(`server is on port ${port}`);
+});
