@@ -17,7 +17,7 @@ app.use((req,res,next)=>{
 // app.use((req,res,next)=>{
 //     res.render("maintanance.hbs");
 // });
-app.use(express.static(__dirname+'/public'));
+//app.use(express.static(__dirname+'/public'));
 app.get('/',(req,res)=>{
     res.render(
         "home.hbs",{
